@@ -11,7 +11,7 @@ Instalação: Para começar, é necessário ter o Docker instalado em sua máqui
 [Clique aqui](https://docs.docker.com/engine/install/ubuntu/) para obter as instruções de instalação do Docker para Ubuntu.
 
 ### Dados Geográficos
-Download dos dados do OpenStreetMap, baixe os dados da região Centro-Oeste do Brasil a partir do [Geofabrik](https://download.geofabrik.de/south-america/brazil/centro-oeste-latest.osm.pbf):
+Download dos dados do OpenStreetMap, baixe os dados da região Centro-Oeste do Brasil a partir do [Geofabrik](https://drive.google.com/file/d/1nGQiISavwKTz3zgd0TK0U5j6HQYQ9Jvv/view)
 
 ## Configurando o OSRM
 
