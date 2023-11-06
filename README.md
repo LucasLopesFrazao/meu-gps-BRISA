@@ -37,6 +37,10 @@ Certifique-se de que o Docker esteja em execução e, em seguida, execute os seg
 
 ### Bibliotecas Adicionais
 
+Caso queira instalar as dependências em um ambiente virtual (env), siga o link da documentação
+abaixo:
+- [env](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
+
 Instale as bibliotecas que estão em `requirements.txt`
 
 ## Conclusão
