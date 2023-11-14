@@ -11,7 +11,8 @@ Instalação: Para começar, é necessário ter o Docker instalado em sua máqui
 [Clique aqui](https://docs.docker.com/engine/install/ubuntu/) para obter as instruções de instalação do Docker para Ubuntu.
 
 ### Dados Geográficos
-Download dos dados do OpenStreetMap, baixe os dados da região Centro-Oeste do Brasil a partir do [Geofabrik](https://drive.google.com/file/d/1nGQiISavwKTz3zgd0TK0U5j6HQYQ9Jvv/view)
+
+Download dos dados do OpenStreetMap, baixe os dados da região Centro-Oeste do Brasil a partir do [Geofabrik](https://download.geofabrik.de/south-america/brazil/centro-oeste-latest.osm.pbf):
 
 ## Configurando o OSRM
 
@@ -23,17 +24,17 @@ Certifique-se de que o Docker esteja em execução e, em seguida, execute os seg
 
 #### Extração:
 
-```docker run -t -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-extract -p /opt/car.lua /data/centro-oeste-latest.osm.pbf || echo "osrm-extract failed"```
+``docker run -t -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-extract -p /opt/car.lua /data/centro-oeste-latest.osm.pbf || echo "osrm-extract failed"``
 
 #### Particionamento e customização
 
-```docker run -t -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-partition /data/centro-oeste-latest.osrm || echo "osrm-partition failed"```
+``docker run -t -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-partition /data/centro-oeste-latest.osrm || echo "osrm-partition failed"``
 
-```docker run -t -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-customize /data/centro-oeste-latest.osrm || echo "osrm-customize failed"```
+``docker run -t -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-customize /data/centro-oeste-latest.osrm || echo "osrm-customize failed"``
 
 #### Executando o Servidor OSRM
 
-```docker run -t -i -p 5000:5000 -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-routed --algorithm mld /data/centro-oeste-latest.osrm```
+``docker run -t -i -p 5000:5000 -v "${PWD}:/data" ghcr.io/project-osrm/osrm-backend osrm-routed --algorithm mld /data/centro-oeste-latest.osrm``
 
 ### Bibliotecas Adicionais
 
@@ -55,7 +56,7 @@ Ao utilizar a ferramenta OSRM para obter rotas, é possível consultar diretamen
 
 Faça uma solicitação GET para o seguinte endpoint:
 
-```http://127.0.0.1:5000/route/v1/driving/-48.043619,-16.000091;-48.043619,-15.842141```
+``localhost:5000/route/v1/driving/-48.043619,-16.000091;-48.043619,-15.842141``
 
 A resposta deve ser semelhante a:
 
@@ -102,6 +103,7 @@ A resposta deve ser semelhante a:
   ]
 }
 ```
+
 ## Entendendo a Resposta
 
 O campo de geometry na resposta contém uma string que representa o caminho da rota em um formato compacto. Para converter essa string em coordenadas legíveis, é necessário decodificar usando a função `polyline`.
